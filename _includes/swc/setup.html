@@ -19,7 +19,12 @@
 {% if site.flavor == "r" %}
 {% include install_instructions/r.html %}
 {% elsif site.flavor == "python" %}
-{% include install_instructions/python.html %}
+{% comment %}
+This workshop teaches Python using Google Colab, so the local Python
+installation instructions (install_instructions/python.html) are replaced
+with Google Colab instructions.
+{% endcomment %}
+{% include install_instructions/colab.html %}
 {% elsif site.flavor == "FIXME" %}
 {% include install_instructions/r.html %}
 {% include install_instructions/python.html %}
