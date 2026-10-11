@@ -12,11 +12,12 @@ humantime: "9:00 am - 4:30 pm MST (Arizona time, UTC-7)"    # human-readable tim
 startdate: 2026-10-15      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
 enddate: 2026-10-16        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
 instructor: ["Amanda Kis", "Nil Mu", "Sarah Marie Stueve"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
-helper: []     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
+helper: ["Finn Short"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
 email: ["Brittany.Blanchard@nau.edu"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
 # Optional variables
 collaborative_notes:  # URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document (e.g., https://pad.carpentries.org/2015-01-01-euphoria)
 eventbrite:           # alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
+zoom_link:            "https://arizona.zoom.us/j/87627484811"  # URL of the workshop Zoom meeting, e.g., "https://nau.zoom.us/j/1234567890" (leave blank until the link is ready; the site shows "to be announced" while it is empty)
 # DON'T CHANGE THIS
 layout: workshop
 ---
@@ -242,8 +243,16 @@ address.
                     </p>
                 {% elsif online == "true_private" %}
                     <p id="where">
-                        This training will take place online.
-                        The instructors will provide you with the information you will need to connect to this meeting.
+                        This training will take place online over Zoom.
+                        {% if page.zoom_link %}
+                            Join at <a href="{{page.zoom_link}}">{{page.zoom_link}}</a>.
+                            If you need a password or other information to access the training,
+                            the instructors will pass it on to you before the workshop.
+                        {% else %}
+                            <strong>Zoom link: to be announced.</strong>
+                            The instructors will post the link here and provide you with any other
+                            information you will need to connect to this meeting.
+                        {% endif %}
                     </p>
                 {% endif %}        
         </dd>
